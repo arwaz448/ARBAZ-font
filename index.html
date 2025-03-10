@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>फोंट जनरेटर</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        #textInput {
+            width: 80%;
+            padding: 10px;
+            font-size: 16px;
+        }
+        #fontContainer {
+            margin-top: 20px;
+        }
+        .fontSample {
+            margin: 10px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>फोंट जनरेटर</h1>
+    <input type="text" id="textInput" placeholder="यहां टेक्स्ट लिखें">
+    <div id="fontContainer"></div>
+
+    <script>
+        const fonts = [
+            "Arial", "Times New Roman", "Courier New", "Verdana", "Georgia",
+            "Comic Sans MS", "Impact", "Lucida Console", "Tahoma", "Trebuchet MS",
+            "Arial Black", "Palatino Linotype", "Garamond", "Bookman", "Century Gothic",
+            "Copperplate", "Franklin Gothic", "Lucida Sans", "MS Sans Serif", "MS Serif",
+            "Symbol", "Webdings", "Wingdings", "Zapf Dingbats", "Cambria",
+            "Calibri", "Candara", "Consolas", "Constantia", "Corbel",
+            "Ebrima", "Gabriola", "Segoe UI", "Segoe Script", "Segoe Print",
+            "Malgun Gothic", "MingLiU", "PMingLiU", "SimSun", "NSimSun",
+            "FangSong", "KaiTi", "Microsoft JhengHei", "Microsoft YaHei", "Meiryo",
+            "Yu Gothic", "Hiragino Sans", "Hiragino Kaku Gothic", "Osaka", "MS PGothic"
+        ];
+
+        const textInput = document.getElementById('textInput');
+        const fontContainer = document.getElementById('fontContainer');
+
+        textInput.addEventListener('input', () => {
+            const text = textInput.value;
+            fontContainer.innerHTML = '';
+            fonts.forEach(font => {
+                const div = document.createElement('div');
+                div.className = 'fontSample';
+                div.style.fontFamily = font;
+                div.textContent = `${font}: ${text}`;
+                fontContainer.appendChild(div);
+            });
+        });
+    </script>
+</body>
+  </html>
